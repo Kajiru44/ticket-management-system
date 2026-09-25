@@ -1,68 +1,110 @@
-# 🎫 Ticket Management System
+🎫 Ticket Management System
 
-A RESTful backend application for managing support tickets, built with **Java** and **Spring Boot**.
+A RESTful backend application for managing support tickets, built with
+Java and Spring Boot.
 
-The project provides a structured REST API for creating, retrieving, updating and deleting tickets. It uses **Spring Data JPA**, **Hibernate** and **PostgreSQL** for persistent data storage.
+The project provides a structured REST API for creating, retrieving,
+updating and deleting tickets. It uses Spring Data JPA,
+Hibernate and PostgreSQL for persistent data storage.
 
-The project is being developed as a **Java backend portfolio project**, with a focus on clean architecture, REST API design, database integration and practical Spring Boot development.
+The project is developed as a Java backend portfolio project, with a
+focus on clean architecture, REST API design, database integration,
+validation, exception handling and automated testing.
 
----
+📌 Project Status
 
-## 📌 Project Status
+🚀 Core API and API quality features implemented
 
-🚧 **Currently under development**
+✅ Implemented
 
-The core ticket management functionality is implemented and working.
+Spring Boot application
 
-### ✅ Implemented
+REST API
 
-- [x] Spring Boot application
-- [x] REST API
-- [x] Ticket entity
-- [x] Ticket repository
-- [x] Ticket service
-- [x] Ticket controller
-- [x] Create tickets
-- [x] Retrieve all tickets
-- [x] Retrieve ticket by ID
-- [x] Update tickets
-- [x] Delete tickets
-- [x] PostgreSQL integration
-- [x] Ticket status
-- [x] Ticket priority
-- [x] Automatic creation timestamp
-- [x] Custom `TicketNotFoundException`
-- [x] Global exception handling
-- [x] HTTP 404 handling
-- [x] API testing with Postman
-- [x] Git / GitHub integration
+Layered architecture
 
-### 🔜 Planned
+Ticket entity
 
-- [ ] Request validation
-- [ ] DTO layer
-- [ ] Improved API error responses
-- [ ] Authentication
-- [ ] Authorization
-- [ ] User management
-- [ ] Ticket assignment
-- [ ] Ticket comments
-- [ ] Ticket history
-- [ ] Search and filtering
-- [ ] Pagination
-- [ ] Swagger / OpenAPI documentation
-- [ ] Extended automated tests
-- [ ] Docker
-- [ ] CI/CD
-- [ ] Frontend
+Ticket repository
 
----
+Ticket service
 
-# 🏗️ Architecture
+Ticket controller
+
+Create tickets
+
+Retrieve all tickets
+
+Retrieve ticket by ID
+
+Update tickets
+
+Delete tickets
+
+PostgreSQL integration
+
+Ticket status
+
+Ticket priority
+
+Automatic creation timestamp
+
+DTO layer
+
+Request validation with @Valid and @NotBlank
+
+Global exception handling
+
+Custom TicketNotFoundException
+
+HTTP 404 handling
+
+Clean validation error responses
+
+JUnit unit tests
+
+Mockito mocking
+
+3 service unit tests
+
+API testing with Postman
+
+Git / GitHub integration
+
+🔜 Planned
+
+Authentication
+
+Authorization
+
+User management
+
+Ticket assignment
+
+Ticket comments
+
+Ticket history
+
+Search and filtering
+
+Pagination
+
+Swagger / OpenAPI documentation
+
+Controller tests
+
+Integration tests
+
+Docker
+
+CI/CD
+
+Frontend
+
+🏗️ Architecture
 
 The application follows a layered backend architecture.
 
-```text
                          ┌─────────────────────┐
                          │       Client        │
                          │  Postman / Frontend │
@@ -92,77 +134,98 @@ The application follows a layered backend architecture.
                          │     PostgreSQL      │
                          │       Database      │
                          └─────────────────────┘
-```
 
-### Controller Layer
+Controller Layer
 
-The controller handles incoming HTTP requests and maps them to the appropriate service methods.
+The controller handles incoming HTTP requests and maps them to the
+appropriate service methods.
 
-The controller is responsible for exposing the REST API endpoints.
+It exposes the REST API endpoints and handles request/response DTOs.
 
-### Service Layer
+Service Layer
 
 The service layer contains the application's business logic.
 
 It is responsible for operations such as:
 
-- Creating tickets
-- Retrieving tickets
-- Updating tickets
-- Deleting tickets
-- Handling missing tickets
+Creating tickets
 
-### Repository Layer
+Retrieving tickets
 
-The repository layer handles communication with the database through **Spring Data JPA**.
+Updating tickets
 
-The application uses `TicketRepository` to access ticket data.
+Deleting tickets
 
-### Model Layer
+Handling missing tickets
+
+Repository Layer
+
+The repository layer handles communication with the database through
+Spring Data JPA.
+
+The application uses TicketRepository to access ticket data.
+
+DTO Layer
+
+The DTO layer separates API data transfer from the internal database
+entity.
+
+Currently the project contains:
+
+TicketRequest
+
+TicketResponse
+
+TicketRequest is used for incoming API data, while TicketResponse is
+used for outgoing API data.
+
+Model Layer
 
 The model layer contains the application's domain objects.
 
 Currently the project contains:
 
-- `Ticket`
-- `TicketStatus`
-- `TicketPriority`
+Ticket
 
-### Exception Layer
+TicketStatus
+
+TicketPriority
+
+Exception Layer
 
 The application contains centralized exception handling.
 
 Currently implemented:
 
-- `TicketNotFoundException`
-- `GlobalExceptionHandler`
+TicketNotFoundException
 
-This allows the API to return an appropriate `404 Not Found` response when a requested ticket does not exist.
+GlobalExceptionHandler
 
----
+Validation error handling
 
-# 🛠️ Technology Stack
+This allows the API to return appropriate HTTP responses for missing
+resources and invalid requests.
 
-| Technology | Purpose |
-|---|---|
-| Java | Backend programming language |
-| Spring Boot | Backend framework |
-| Spring Web | REST API development |
-| Spring Data JPA | Database access |
-| Hibernate | Object-relational mapping |
-| PostgreSQL | Relational database |
-| Maven | Dependency and build management |
-| JUnit | Automated testing |
-| Postman | API testing |
-| IntelliJ IDEA | Development environment |
-| Git | Version control |
-| GitHub | Source code hosting |
+🛠️ Technology Stack
 
----
+Technology        Purpose
 
-# 📁 Project Structure
+Java              Backend programming language
+Spring Boot       Backend framework
+Spring Web        REST API development
+Spring Data JPA   Database access
+Hibernate         Object-relational mapping
+PostgreSQL        Relational database
+Maven             Dependency and build management
+JUnit             Automated testing
+Mockito           Unit test mocking
+Postman           API testing
+IntelliJ IDEA     Development environment
+Git               Version control
+GitHub            Source code hosting
 
-```text
+📁 Project Structure
+
 ticket-management-system/
 │
 ├── .mvn/
@@ -182,6 +245,10 @@ ticket-management-system/
 │   │   │               │
 │   │   │               ├── controller/
 │   │   │               │   └── TicketController.java
+│   │   │               │
+│   │   │               ├── dto/
+│   │   │               │   ├── TicketRequest.java
+│   │   │               │   └── TicketResponse.java
 │   │   │               │
 │   │   │               ├── exception/
 │   │   │               │   ├── GlobalExceptionHandler.java
@@ -205,262 +272,245 @@ ticket-management-system/
 │   │
 │   └── test/
 │       └── java/
+│           └── com/
+│               └── kajiru/
+│                   └── ticketmanagementsystem/
+│                       └── service/
+│                           └── TicketServiceTest.java
 │
 ├── .gitignore
 ├── mvnw
 ├── mvnw.cmd
 ├── pom.xml
 └── README.md
-```
 
----
-
-# 🎫 Ticket Model
+🎫 Ticket Model
 
 A ticket currently contains the following information:
 
-| Field | Type | Description |
-|---|---|---|
-| `id` | `Long` | Unique ticket identifier |
-| `title` | `String` | Short description of the issue |
-| `description` | `String` | Detailed description |
-| `status` | `TicketStatus` | Current ticket state |
-| `priority` | `TicketPriority` | Ticket priority |
-| `createdAt` | `LocalDateTime` | Time the ticket was created |
+Field           Type               Description
 
-The creation timestamp is automatically generated when a ticket is persisted.
+id            Long             Unique ticket identifier
+title         String           Short description of the issue
+description   String           Detailed description
+status        TicketStatus     Current ticket state
+priority      TicketPriority   Ticket priority
+createdAt     LocalDateTime    Time the ticket was created
 
----
+The creation timestamp is automatically generated when a ticket is
+persisted.
 
-# 📊 Ticket Status
+📊 Ticket Status
 
-Ticket status is represented by the `TicketStatus` enum.
+Ticket status is represented by the TicketStatus enum.
 
 Currently available statuses:
 
-```text
 OPEN
 IN_PROGRESS
 CLOSED
-```
 
 Example:
 
-```json
 {
-    "status": "IN_PROGRESS"
+  "status": "IN_PROGRESS"
 }
-```
 
----
+🚨 Ticket Priority
 
-# 🚨 Ticket Priority
-
-Ticket priority is represented by the `TicketPriority` enum.
+Ticket priority is represented by the TicketPriority enum.
 
 Currently available priorities:
 
-```text
 LOW
 MEDIUM
 HIGH
-```
 
 Example:
 
-```json
 {
-    "priority": "HIGH"
+  "priority": "HIGH"
 }
-```
 
----
-
-# 🌐 REST API
+🌐 REST API
 
 The API uses the following base URL:
 
-```text
 http://localhost:8080/api/tickets
-```
 
-## Available Endpoints
+Available Endpoints
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/tickets` | Create a new ticket |
-| `GET` | `/api/tickets` | Retrieve all tickets |
-| `GET` | `/api/tickets/{id}` | Retrieve a specific ticket |
-| `PUT` | `/api/tickets/{id}` | Update a ticket |
-| `DELETE` | `/api/tickets/{id}` | Delete a ticket |
+Method     Endpoint              Description
 
----
+POST     /api/tickets        Create a new ticket
+GET      /api/tickets        Retrieve all tickets
+GET      /api/tickets/{id}   Retrieve a specific ticket
+PUT      /api/tickets/{id}   Update a ticket
+DELETE   /api/tickets/{id}   Delete a ticket
 
-# ➕ Create a Ticket
+➕ Create a Ticket
 
-### `POST /api/tickets`
+POST /api/tickets
 
 Creates a new ticket.
 
-### Request
+Request
 
-```json
 {
-    "title": "Login funktioniert nicht",
-    "description": "Der Benutzer kann sich nicht anmelden.",
-    "status": "OPEN",
-    "priority": "HIGH"
+  "title": "Login funktioniert nicht",
+  "description": "Der Benutzer kann sich nicht anmelden.",
+  "status": "OPEN",
+  "priority": "HIGH"
 }
-```
 
-### Response
+Response
 
-```json
 {
-    "createdAt": "2026-09-21T21:16:41.4863717",
-    "description": "Der Benutzer kann sich nicht anmelden.",
-    "id": 2,
-    "priority": "HIGH",
-    "status": "OPEN",
-    "title": "Login funktioniert nicht"
+  "id": 1,
+  "title": "Login funktioniert nicht",
+  "description": "Der Benutzer kann sich nicht anmelden.",
+  "status": "OPEN",
+  "priority": "HIGH",
+  "createdAt": "2026-09-25T12:00:00"
 }
-```
 
----
+📋 Get All Tickets
 
-# 📋 Get All Tickets
-
-### `GET /api/tickets`
+GET /api/tickets
 
 Returns all tickets stored in the database.
 
-### Example Response
+Example Response
 
-```json
 [
-    {
-        "createdAt": "2026-09-21T21:16:41.4863717",
-        "description": "Der Benutzer kann sich nicht anmelden.",
-        "id": 2,
-        "priority": "HIGH",
-        "status": "OPEN",
-        "title": "Login funktioniert nicht"
-    }
+  {
+    "id": 1,
+    "title": "Login funktioniert nicht",
+    "description": "Der Benutzer kann sich nicht anmelden.",
+    "status": "OPEN",
+    "priority": "HIGH",
+    "createdAt": "2026-09-25T12:00:00"
+  }
 ]
-```
 
----
+🔎 Get Ticket by ID
 
-# 🔎 Get Ticket by ID
-
-### `GET /api/tickets/{id}`
+GET /api/tickets/{id}
 
 Returns a specific ticket based on its ID.
 
-### Example
+Example
 
-```text
-GET /api/tickets/2
-```
+GET /api/tickets/1
 
-### Response
+Response
 
-```json
 {
-    "createdAt": "2026-09-21T21:16:41.4863717",
-    "description": "Der Benutzer kann sich nicht anmelden.",
-    "id": 2,
-    "priority": "HIGH",
-    "status": "OPEN",
-    "title": "Login funktioniert nicht"
+  "id": 1,
+  "title": "Login funktioniert nicht",
+  "description": "Der Benutzer kann sich nicht anmelden.",
+  "status": "OPEN",
+  "priority": "HIGH",
+  "createdAt": "2026-09-25T12:00:00"
 }
-```
 
----
+✏️ Update a Ticket
 
-# ✏️ Update a Ticket
-
-### `PUT /api/tickets/{id}`
+PUT /api/tickets/{id}
 
 Updates an existing ticket.
 
-### Example
+Example
 
-```text
-PUT /api/tickets/2
-```
+PUT /api/tickets/1
 
-### Request
+Request
 
-```json
 {
-    "title": "Login funktioniert jetzt",
-    "description": "Der Login wurde repariert.",
-    "status": "IN_PROGRESS",
-    "priority": "HIGH"
+  "title": "Login funktioniert jetzt",
+  "description": "Der Login wurde repariert.",
+  "status": "IN_PROGRESS",
+  "priority": "HIGH"
 }
-```
 
-### Response
+Response
 
-```json
 {
-    "createdAt": "2026-09-21T21:16:41.4863717",
-    "description": "Der Login wurde repariert.",
-    "id": 2,
-    "priority": "HIGH",
-    "status": "IN_PROGRESS",
-    "title": "Login funktioniert jetzt"
+  "id": 1,
+  "title": "Login funktioniert jetzt",
+  "description": "Der Login wurde repariert.",
+  "status": "IN_PROGRESS",
+  "priority": "HIGH",
+  "createdAt": "2026-09-25T12:00:00"
 }
-```
 
----
+🗑️ Delete a Ticket
 
-# 🗑️ Delete a Ticket
-
-### `DELETE /api/tickets/{id}`
+DELETE /api/tickets/{id}
 
 Deletes an existing ticket.
 
-### Example
+Example
 
-```text
-DELETE /api/tickets/2
-```
+DELETE /api/tickets/1
 
-### Response
+Response
 
-```text
 200 OK
-```
 
----
+❌ Validation
 
-# ❌ Error Handling
+Incoming ticket requests are validated using Jakarta Bean Validation.
 
-The application uses a custom exception for tickets that cannot be found.
+For example, title and description cannot be blank.
+
+Invalid request:
+
+{
+  "title": "",
+  "description": "",
+  "status": "OPEN",
+  "priority": "HIGH"
+}
+
+The API returns:
+
+400 Bad Request
+
+with a clean JSON response:
+
+{
+  "title": "must not be blank",
+  "description": "must not be blank"
+}
+
+Validation is implemented using:
+
+@Valid
+
+@NotBlank
+
+GlobalExceptionHandler
+
+❌ Error Handling
+
+The application uses a custom exception for tickets that cannot be
+found.
 
 For example:
 
-```text
 GET /api/tickets/999
-```
 
-If ticket `999` does not exist, the API returns:
+If ticket 999 does not exist, the API returns:
 
-```text
 404 Not Found
-```
 
-with the following response:
+with:
 
-```text
 Ticket with id 999 not found
-```
 
 The request is handled through:
 
-```text
 TicketNotFoundException
         │
         ▼
@@ -468,186 +518,97 @@ GlobalExceptionHandler
         │
         ▼
 HTTP 404 Not Found
-```
 
-This keeps exception handling separate from the controller and provides a consistent response for missing resources.
+This keeps exception handling separate from the controller and provides
+consistent responses for missing resources.
 
----
+🗄️ Database
 
-# 🗄️ Database
+The application uses PostgreSQL for persistent data storage.
 
-The application uses **PostgreSQL** for persistent data storage.
-
-Spring Data JPA and Hibernate are used to map Java objects to database entities.
+Spring Data JPA and Hibernate are used to map Java objects to database
+entities.
 
 Database configuration is located in:
 
-```text
 src/main/resources/application.properties
-```
 
 Example configuration:
 
-```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/ticketdb
 spring.datasource.username=postgres
 spring.datasource.password=YOUR_PASSWORD
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-```
 
-> ⚠️ Never commit real passwords, API keys or other secrets to a public GitHub repository.
+⚠️ Never commit real passwords, API keys or other secrets to a public
+GitHub repository.
 
-For production environments, sensitive configuration should be provided through environment variables or another secure configuration mechanism.
+For production environments, sensitive configuration should be provided
+through environment variables or another secure configuration mechanism.
 
----
+🧪 Automated Testing
 
-# 🚀 Getting Started
+The project contains unit tests for the service layer using JUnit 5
+and Mockito.
 
-## Prerequisites
+Current tests include:
 
-Make sure the following software is installed:
+createTicket_shouldSaveTicket
 
-- Java
-- PostgreSQL
-- Git
-- IntelliJ IDEA or another Java IDE
-- Postman or another REST client
+getTicketById_shouldReturnTicket
 
----
+getTicketById_shouldThrowExceptionWhenNotFound
 
-## 1. Clone the Repository
+Current result:
 
-```bash
-git clone https://github.com/Kajiru44/ticket-management-system.git
-```
+3 tests passed
+3 tests total
 
-Navigate into the project:
+The tests use Mockito to mock TicketRepository, allowing the service
+layer to be tested independently from the database.
 
-```bash
-cd ticket-management-system
-```
+Run all tests with:
 
----
+.\mvnw.cmd test
 
-## 2. Create the PostgreSQL Database
+🧪 API Testing
 
-Create a database named:
+The REST API has been tested using Postman.
 
-```text
-ticketdb
-```
+Tested functionality includes:
 
-For example:
+Successful POST requests
 
-```sql
-CREATE DATABASE ticketdb;
-```
+Successful GET requests
 
----
+Successful PUT requests
 
-## 3. Configure PostgreSQL
+Successful DELETE requests
 
-Open:
+Retrieval of individual tickets
 
-```text
-src/main/resources/application.properties
-```
+400 Bad Request validation handling
 
-Configure your local PostgreSQL connection.
+404 Not Found handling for non-existing tickets
 
-Example:
-
-```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/ticketdb
-spring.datasource.username=postgres
-spring.datasource.password=YOUR_PASSWORD
-```
-
----
-
-## 4. Start the Application
-
-Using the Maven Wrapper on Windows:
-
-```powershell
-.\mvnw.cmd spring-boot:run
-```
-
-Alternatively, start the application directly from IntelliJ IDEA by running:
-
-```text
-TicketManagementSystemApplication
-```
-
-The API will then be available at:
-
-```text
-http://localhost:8080
-```
-
----
-
-# 🧪 Testing the API
-
-The REST API can be tested using Postman.
-
-A typical workflow looks like this:
-
-```text
-POST /api/tickets
-        │
-        ▼
-Create Ticket
-        │
-        ▼
-GET /api/tickets
-        │
-        ▼
-Get All Tickets
-        │
-        ▼
-GET /api/tickets/{id}
-        │
-        ▼
-Get Specific Ticket
-        │
-        ▼
-PUT /api/tickets/{id}
-        │
-        ▼
-Update Ticket
-        │
-        ▼
-DELETE /api/tickets/{id}
-        │
-        ▼
-Delete Ticket
-```
-
-The API has been tested with:
-
-- Successful `POST` requests
-- Successful `GET` requests
-- Successful `PUT` requests
-- Successful `DELETE` requests
-- Retrieval of individual tickets
-- `404 Not Found` handling for non-existing tickets
-
----
-
-# 🔄 Request Flow
+🔄 Request Flow
 
 A typical request flows through the application as follows:
 
-```text
 HTTP Request
      │
      ▼
 TicketController
      │
      ▼
+TicketRequest
+     │
+     ▼
+Validation
+     │
+     ▼
 TicketService
      │
      ▼
@@ -658,42 +619,14 @@ Hibernate / JPA
      │
      ▼
 PostgreSQL
-```
 
-The response then travels back through the same layers:
+The response travels back through the application and is converted into
+a TicketResponse.
 
-```text
-PostgreSQL
-     │
-     ▼
-Hibernate / JPA
-     │
-     ▼
-TicketRepository
-     │
-     ▼
-TicketService
-     │
-     ▼
-TicketController
-     │
-     ▼
-JSON Response
-```
-
-This separation makes the application easier to maintain and allows individual layers to evolve independently.
-
----
-
-# 🧩 Why Layered Architecture?
+🧩 Why Layered Architecture?
 
 The project uses a layered architecture to separate responsibilities.
 
-For example, the controller should not directly contain database logic.
-
-Instead:
-
-```text
 Controller
     ↓
 Service
@@ -701,216 +634,353 @@ Service
 Repository
     ↓
 Database
-```
 
-This separation provides several advantages:
+This separation provides:
 
-- Clear responsibilities
-- Easier maintenance
-- Easier testing
-- Better scalability
-- Reduced coupling
-- Cleaner business logic
-- Easier future development
+Clear responsibilities
 
----
+Easier maintenance
 
-# 🔐 Security
+Easier testing
+
+Better scalability
+
+Reduced coupling
+
+Cleaner business logic
+
+Easier future development
+
+🔐 Security
 
 The project currently contains a Spring Security configuration.
 
-At the current development stage, the API is configured to allow requests while the core ticket management functionality is being developed.
+At the current development stage, the API is configured to allow
+requests while the core ticket management functionality is being
+developed.
 
-Authentication and authorization are planned for a later development stage.
+Authentication and authorization are planned for a later development
+stage.
 
-The planned security architecture includes:
+Planned security features include:
 
-```text
-Client
-   │
-   ▼
-Authentication
-   │
-   ▼
-Authorization
-   │
-   ▼
-Protected REST API
-```
+User registration
 
-Future security features may include:
+Login
 
-- User registration
-- Login
-- Password hashing
-- JWT authentication
-- Role-based authorization
-- Protected endpoints
+Password hashing
+
+JWT authentication
+
+Role-based authorization
+
+Protected endpoints
 
 Potential roles:
 
-```text
 USER
 SUPPORT
 ADMIN
-```
 
----
+🛣️ Roadmap
 
-# 🧪 Testing Strategy
+Phase 1 --- Core API
 
-Testing will be expanded as the project grows.
+Project setup
 
-Planned test layers include:
+Spring Boot application
 
-```text
-Unit Tests
-     │
-     ▼
-Service Tests
-     │
-     ▼
-Controller Tests
-     │
-     ▼
-Integration Tests
-     │
-     ▼
-API Tests
-```
+Ticket entity
 
-Planned technologies include:
+Ticket repository
 
-- JUnit
-- Spring Boot Test
-- Mockito
-- Testcontainers
+Ticket service
 
----
+Ticket controller
 
-# 🛣️ Roadmap
+Create ticket
 
-The project will evolve from a basic CRUD REST API into a more complete ticket management platform.
+Get all tickets
 
-## Phase 1 — Core API
+Get ticket by ID
 
-- [x] Project setup
-- [x] Spring Boot application
-- [x] Ticket entity
-- [x] Ticket repository
-- [x] Ticket service
-- [x] Ticket controller
-- [x] Create ticket
-- [x] Get all tickets
-- [x] Get ticket by ID
-- [x] Update ticket
-- [x] Delete ticket
-- [x] PostgreSQL integration
-- [x] Ticket status
-- [x] Ticket priority
-- [x] Exception handling
-- [x] 404 handling
+Update ticket
 
-## Phase 2 — API Quality
+Delete ticket
 
-- [ ] DTOs
-- [ ] Validation
-- [ ] Improved error responses
-- [ ] HTTP status improvements
-- [ ] Swagger / OpenAPI
-- [ ] API documentation
+PostgreSQL integration
 
-## Phase 3 — Authentication
+Ticket status
 
-- [ ] User entity
-- [ ] User registration
-- [ ] Login
-- [ ] Password hashing
-- [ ] JWT authentication
-- [ ] Role-based authorization
-- [ ] Protected endpoints
+Ticket priority
 
-## Phase 4 — Advanced Ticket Management
+Exception handling
 
-- [ ] Ticket assignment
-- [ ] User relationships
-- [ ] Ticket comments
-- [ ] Ticket history
-- [ ] Categories
-- [ ] Search
-- [ ] Filtering
-- [ ] Sorting
-- [ ] Pagination
+404 handling
 
-## Phase 5 — Testing
+Phase 2 --- API Quality
 
-- [ ] Service unit tests
-- [ ] Controller tests
-- [ ] Repository tests
-- [ ] Integration tests
-- [ ] Testcontainers
-- [ ] Automated API tests
+DTOs
 
-## Phase 6 — Deployment
+Request validation
 
-- [ ] Docker
-- [ ] Docker Compose
-- [ ] Production configuration
-- [ ] Environment variables
-- [ ] CI/CD
-- [ ] Cloud deployment
-- [ ] Monitoring
+Improved error responses
 
-## Phase 7 — Frontend
+HTTP 400 validation handling
 
-- [ ] Web frontend
-- [ ] Login interface
-- [ ] Ticket dashboard
-- [ ] Ticket creation
-- [ ] Ticket editing
-- [ ] Ticket filtering
-- [ ] User management
-- [ ] Admin dashboard
+Phase 3 --- Testing
 
----
+Service unit tests
 
-# 🎯 Project Goals
+Mockito
 
-The main goal of this project is to build a practical backend application while demonstrating real-world Java and Spring Boot development.
+Controller tests
 
-The project focuses on understanding and applying:
+Integration tests
 
-- Java
-- Spring Boot
-- REST API design
-- CRUD operations
-- HTTP methods
-- HTTP status codes
-- Dependency Injection
-- Layered architecture
-- Spring Data JPA
-- Hibernate
-- PostgreSQL
-- Object-relational mapping
-- Exception handling
-- Global exception handling
-- Maven
-- API testing
-- Git
-- GitHub
-- Backend architecture
+Testcontainers
 
-As the project grows, additional concepts such as authentication, authorization, DTOs, validation, testing, Docker and deployment will be introduced.
+Automated API tests
 
----
+Phase 4 --- Authentication
 
-# 📈 Current Development Direction
+User entity
 
-The application is intentionally being developed incrementally.
+User registration
+
+Login
+
+Password hashing
+
+JWT authentication
+
+Role-based authorization
+
+Protected endpoints
+
+Phase 5 --- Advanced Ticket Management
+
+Ticket assignment
+
+User relationships
+
+Ticket comments
+
+Ticket history
+
+Categories
+
+Search
+
+Filtering
+
+Sorting
+
+Pagination
+
+Phase 6 --- Documentation & Deployment
+
+Swagger / OpenAPI
+
+Docker
+
+Docker Compose
+
+Production configuration
+
+Environment variables
+
+CI/CD
+
+Cloud deployment
+
+Monitoring
+
+Phase 7 --- Frontend
+
+Web frontend
+
+Login interface
+
+Ticket dashboard
+
+Ticket creation
+
+Ticket editing
+
+Ticket filtering
+
+User management
+
+Admin dashboard
+
+🎯 Project Goals
+
+The main goal of this project is to build a practical backend
+application while demonstrating real-world Java and Spring Boot
+development.
+
+The project focuses on:
+
+Java
+
+Spring Boot
+
+REST API design
+
+CRUD operations
+
+HTTP methods
+
+HTTP status codes
+
+Dependency Injection
+
+Layered architecture
+
+DTOs
+
+Request validation
+
+Spring Data JPA
+
+Hibernate
+
+PostgreSQL
+
+Object-relational mapping
+
+Exception handling
+
+Global exception handling
+
+JUnit
+
+Mockito
+
+Maven
+
+API testing
+
+Git
+
+GitHub
+
+Backend architecture
+
+💻 Development Environment
+
+The project is currently developed using:
+
+IntelliJ IDEA
+
+Java
+
+Spring Boot
+
+Maven
+
+PostgreSQL
+
+Postman
+
+Git
+
+GitHub
+
+📦 Build
+
+The project uses Maven for dependency management and building.
+
+Build the project:
+
+./mvnw clean package
+
+On Windows:
+
+.\mvnw.cmd clean package
+
+Run tests:
+
+./mvnw test
+
+On Windows:
+
+.\mvnw.cmd test
+
+Run the application:
+
+./mvnw spring-boot:run
+
+On Windows:
+
+.\mvnw.cmd spring-boot:run
+
+🚀 Getting Started
+
+Prerequisites
+
+Make sure the following software is installed:
+
+Java
+
+PostgreSQL
+
+Git
+
+IntelliJ IDEA or another Java IDE
+
+Postman or another REST client
+
+1. Clone the Repository
+
+git clone https://github.com/Kajiru44/ticket-management-system.git
+
+Navigate into the project:
+
+cd ticket-management-system
+
+2. Create the PostgreSQL Database
+
+Create a database named:
+
+ticketdb
+
+For example:
+
+CREATE DATABASE ticketdb;
+
+3. Configure PostgreSQL
+
+Open:
+
+src/main/resources/application.properties
+
+Configure your local PostgreSQL connection:
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/ticketdb
+spring.datasource.username=postgres
+spring.datasource.password=YOUR_PASSWORD
+
+4. Start the Application
+
+Using the Maven Wrapper on Windows:
+
+.\mvnw.cmd spring-boot:run
+
+Alternatively, start the application directly from IntelliJ IDEA by
+running:
+
+TicketManagementSystemApplication
+
+The API will then be available at:
+
+http://localhost:8080
+
+📈 Current Development Direction
 
 The current foundation is:
 
-```text
 Java
   │
   ▼
@@ -918,106 +988,33 @@ Spring Boot
   │
   ├── Controller
   │
+  ├── DTO
+  │
+  ├── Validation
+  │
   ├── Service
   │
   ├── Repository
   │
+  ├── Exception Handling
+  │
   └── Model
-        │
-        ▼
-     PostgreSQL
-```
+       │
+       ▼
+   PostgreSQL
 
-The next stages will build additional functionality on top of this foundation rather than replacing the existing architecture.
+The project is developed incrementally, with additional functionality
+added on top of the existing backend architecture.
 
----
-
-# 💻 Development Environment
-
-The project is currently developed using:
-
-- IntelliJ IDEA
-- Java
-- Spring Boot
-- Maven
-- PostgreSQL
-- Postman
-- Git
-- GitHub
-
----
-
-# 📦 Build
-
-The project uses Maven for dependency management and building.
-
-Build the project with:
-
-```bash
-./mvnw clean package
-```
-
-On Windows:
-
-```powershell
-.\mvnw.cmd clean package
-```
-
-Run tests with:
-
-```bash
-./mvnw test
-```
-
-On Windows:
-
-```powershell
-.\mvnw.cmd test
-```
-
-Run the application with:
-
-```bash
-./mvnw spring-boot:run
-```
-
-On Windows:
-
-```powershell
-.\mvnw.cmd spring-boot:run
-```
-
----
-
-# 🌱 Git Workflow
-
-The project uses Git for version control.
-
-The repository is hosted on GitHub:
-
-**https://github.com/Kajiru44/ticket-management-system**
-
-Development is performed incrementally through commits representing individual project milestones.
-
-Example:
-
-```bash
-git add .
-git commit -m "Implement ticket management API"
-git push
-```
-
----
-
-# 📚 Learning Focus
+📚 Learning Focus
 
 This project is also intended as a practical learning environment.
 
-Instead of building only isolated examples, the goal is to continuously expand one real application and introduce additional backend concepts as the project develops.
+Instead of building only isolated examples, the goal is to continuously
+expand one real application and introduce additional backend concepts.
 
-The development path is approximately:
+The development path currently includes:
 
-```text
 Java Fundamentals
        ↓
 Spring Boot
@@ -1028,34 +1025,33 @@ JPA / Hibernate
        ↓
 PostgreSQL
        ↓
+Layered Architecture
+       ↓
 Exception Handling
        ↓
 Validation
        ↓
 DTOs
        ↓
+Unit Testing
+       ↓
 Authentication
        ↓
 Authorization
-       ↓
-Testing
        ↓
 Docker
        ↓
 CI/CD
        ↓
 Deployment
-```
 
----
+🔮 Future Vision
 
-# 🚀 Future Vision
+The long-term goal is to turn the current CRUD API into a more complete
+ticket management platform.
 
-The long-term goal is to turn the current CRUD API into a more complete ticket management platform.
+A potential future architecture could look like:
 
-A potential final architecture could look like:
-
-```text
                            ┌─────────────────────┐
                            │      Frontend       │
                            │    Web Application  │
@@ -1068,42 +1064,39 @@ A potential final architecture could look like:
                            │       REST API      │
                            └──────────┬──────────┘
                                       │
-                 ┌────────────────────┼────────────────────┐
-                 │                    │                    │
-                 ▼                    ▼                    ▼
-          ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
-          │ Controller  │      │   Service   │      │  Security   │
-          └─────────────┘      └──────┬──────┘      └─────────────┘
+                    ┌─────────────────┼─────────────────┐
+                    │                 │                 │
+                    ▼                 ▼                 ▼
+             ┌─────────────┐   ┌─────────────┐   ┌─────────────┐
+             │ Controller  │   │   Service   │   │  Security   │
+             └─────────────┘   └──────┬──────┘   └─────────────┘
                                       │
                                       ▼
-                              ┌─────────────┐
-                              │ Repository  │
-                              └──────┬──────┘
-                                     │
-                                     ▼
-                              ┌─────────────┐
-                              │ PostgreSQL  │
-                              └─────────────┘
-```
+                               ┌─────────────┐
+                               │ Repository  │
+                               └──────┬──────┘
+                                      │
+                                      ▼
+                               ┌─────────────┐
+                               │ PostgreSQL  │
+                               └─────────────┘
 
-Additional infrastructure such as Docker, CI/CD and cloud deployment can later be added around the application.
+Additional infrastructure such as Docker, CI/CD and cloud deployment can
+later be added around the application.
 
----
+👨‍💻 Author
 
-# 👨‍💻 Author
-
-**Kajiru44**
+Kajiru44
 
 GitHub:
 
 https://github.com/Kajiru44
 
----
+📄 License
 
-# 📄 License
+This project is currently developed as a personal portfolio and learning
+project.
 
-This project is currently developed as a personal portfolio and learning project.
-
----
-
-⭐ **This project is actively being developed and expanded.**
+⭐ This project demonstrates a practical Java / Spring Boot REST
+backend with PostgreSQL, DTOs, validation, exception handling and
+automated unit testing.
